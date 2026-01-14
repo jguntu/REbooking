@@ -1,0 +1,14 @@
+{
+  "form": {
+    "flat": "Appartamento, N° civico / Edificio, Stabile*",
+    "area": "Via / Zona*",
+    "landmark": "Punto di riferimento",
+    "pincode": "CAP*",
+    "state": "Seleziona Provincia*",
+    "city": "Seleziona Comune / Città*",
+    "referral": "Inserisci codice di presentazione",
+    "verify": "Verifica",
+    "heading": "Il tuo indirizzo",
+    "subheading": "INSERISCI I TUOI DATI"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "form": {
+    "flat": "Appartement, Maison / Immeuble*",
+    "area": "Quartier / Rue*",
+    "landmark": "Point de repère",
+    "pincode": "Code postal*",
+    "state": "Sélectionner État / Province*",
+    "city": "Sélectionner Ville*",
+    "referral": "Entrez le code de parrainage",
+    "verify": "Vérifier",
+    "heading": "Votre adresse",
+    "subheading": "ENTREZ VOS COORDONNÉES",
+    "subscription": "Frais d'abonnement",
+    "referralcode": "Remise de parrainage"
+  }
+}

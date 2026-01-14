@@ -1,0 +1,14 @@
+{
+  "form": {
+    "flat": "Wohnung, Hausnr. / Apartment, Gebäude*",
+    "area": "Straße / Gebiet*",
+    "landmark": "Orientierungspunkt",
+    "pincode": "Postleitzahl*",
+    "state": "Bundesland auswählen / Bundesland*",
+    "city": "Stadt / Ort auswählen*"
+ 
+    
+    
+    
+  } 
+}

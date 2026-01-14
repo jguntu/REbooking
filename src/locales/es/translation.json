@@ -1,0 +1,15 @@
+{
+    "form": {
+    "flat": "Piso, N.º de casa / Apartamento, Edificio*",
+    "area": "Zona / Calle*",
+    "landmark": "Punto de referencia",
+    "pincode": "Código postal*",
+    "state": "Selecciona estado / provincia*",
+    "city": "Selecciona localidad / ciudad*",
+    "referral": "Introduce el código de referido",
+    "verify": "Verificar",
+    "heading": "Tu dirección"
+  }
+   
+  }
+  

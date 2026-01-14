@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================
+   Custom Fonts
+======================== */
+
+/* Flying Flea */
+@font-face {
+  font-family: 'Flying_Flea';
+  src: url('/src/assets/font/font/flying_flea_bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  
+}
+
+@font-face {
+  font-family: 'Flying_Flea_bold';
+  src: url('../src/assets/flying_flea_bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  
+}
+
+@font-face {
+  font-family: 'Flying';
+  src: url('/assets/font/font/FlyingFlea-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter_bold';
+  src: url('/assets/font/font/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Interextrabold';
+  src: url('/assets/font//font/Inter-ExtraBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Intermedium';
+  src: url('/assets/font/font/Inter-Medium.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Interlight';
+  src: url('/assets/font/font/Inter18pt-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Interregular';
+  src: url('/assets/font/font/Inter-Regular.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Flying_Flea_Outline';
+  src: url('/src/assets/font/font/flying_flea_bold_outline.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter Font Weights with unique names */
+@font-face {
+  font-family: 'Inter_Light';
+  src: url('/src/assets/font/font/inter_light.otf') format('opentype');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter_Regular';
+  src: url('/src/assets/font/font/inter_regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter_Medium';
+  src: url('/src/assets/font/font/inter_medium.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter_SemiBold';
+  src: url('/src/assets/font/font/inter_semi_bold.otf') format('opentype');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter_Bold';
+  src: url('/src/assets/font/font/inter_bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter_ExtraBold';
+  src: url('/src/assets/font/font/inter_extra_bold.otf') format('opentype');
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter_Black';
+  src: url('/src/assets/font/font/inter_black.otf') format('opentype');
+  font-weight: 900;
+  font-display: swap;
+}
+
+
+/* ========================
+   Base font (optional)
+======================== */
+/*@layer base {
+  body {
+    font-family: 'Font_Inter', sans-serif;
+  }
+} */
+
+@layer utilities {
+  .shadow-custom-step {
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@layer base {
+  * {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+  }
+}
+
+
+/* ========================
+   Utility: Hide Scrollbars
+======================== */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+}

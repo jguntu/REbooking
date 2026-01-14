@@ -1,0 +1,13 @@
+{
+  "form": {
+    "flat": "Flat, House No. / Apartment, Building*",
+    "area": "Area / Street*",
+    "landmark": "Landmark",
+    "pincode": "Pincode / Zipcode*",
+    "state": "Select State / Province *",
+    "city": "Select Town / City*",
+    
+     
+    "referralInvalid": "The referral code is invalid. Please try again."
+  } 
+}
