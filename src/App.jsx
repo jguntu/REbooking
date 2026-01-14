@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import i18n from "./i18n";
 import { getLanguageHeaderValue } from "./utils/language";
-import Home from "./features/components/Home";
+import Home from "./features/home/home";
+//import Home from "./features/components/Home";
 
 
 
