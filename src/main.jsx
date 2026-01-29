@@ -30,7 +30,7 @@ createRoot(document.getElementById('root')).render(
       
       {/* 4. OPTIONAL: Add Devtools for a great debugging UI */}
       {/* Set initialIsOpen={false} to keep it closed by default */}
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   </StrictMode>,
 );

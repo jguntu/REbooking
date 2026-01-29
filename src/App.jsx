@@ -5,7 +5,13 @@ import { useEffect } from "react";
 import i18n from "./i18n";
 import { getLanguageHeaderValue } from "./utils/language";
 import Home from "./features/home/home";
-//import Home from "./features/components/Home";
+import CartPage from "./pages/CartPage";
+import BikeConfigurator from "./pages/BikeConfigurator";
+import ProductPage from "./pages/ProductPage";
+import store, { persistor } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider } from "react-redux";
+import { Configurator3d } from "./features/components/product/Configurator3d";
 
 
 
@@ -30,7 +36,8 @@ function LanguageLogger() {
 function App() {
 
   return (
-  
+    <Provider store={store}>
+     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
       <LanguageLogger />
         <div className="overflow-x-hidden">
@@ -38,11 +45,20 @@ function App() {
             <Routes>
                 
                <Route path="/" element={<Home/>} />
-              
+               <Route path="/cart" element={<CartPage/>} />
+                <Route path="/pro" element={<BikeConfigurator />} />
+                <Route path="/3D-view" element={<Configurator3d/>} />
+               <Route
+              path="/bike-configurator"
+              element={<ProductPage />}
+            />
             </Routes>
           </main>
         </div>
+        
       </BrowserRouter>
+      </PersistGate>
+      </Provider>
      
   );
 }
