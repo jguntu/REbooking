@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { LocationModal } from "./LocationModal";
+import { useSelector } from "react-redux";
 
 export function MotorcycleShowcase({
   imageSrc = "/flyingflea.png",
@@ -9,25 +9,8 @@ export function MotorcycleShowcase({
   onRoadPrice = "₹2,57,284",
 }) {
 
-  const [showLocationModal, setShowLocationModal] = useState(false);
-  const [currentLocation, setCurrentLocation] = useState('Tamil Nadu');
+ const selectedState = useSelector((state) => state.location.state);
 
-  // Show modal on initial load/refresh
-  useEffect(() => {
-    // Check if we're on the product route (or just show it always for this demo)
-    const hasShownModal = sessionStorage.getItem('locationModalShown');
-    
-    if (!hasShownModal) {
-      setShowLocationModal(true);
-      sessionStorage.setItem('locationModalShown', 'true');
-    }
-  }, []);
-
-  const handleLocationUpdate = (newLocation) => {
-    setCurrentLocation(newLocation);
-    // Here you can also update pricing or other location-dependent data
-    console.log('Location updated to:', newLocation);
-  };
   return (
     <div className="flex-1 relative overflow-hidden bg-[#f2f2f2]">
 
@@ -60,8 +43,8 @@ export function MotorcycleShowcase({
         {/* Price */}
         <div className="flex gap-[12px] items-center">
           <p className="text-[#7e7e7e] text-[14px]">On-road price</p>
-          {/* <p className="text-[16px] text-black font-bold">{state}</p> */}
-          <p className="text-[16px] text-black font-bold"  onClick={() => setShowLocationModal(true)}>{currentLocation}</p>
+          <p className="text-[16px] text-black font-bold">{selectedState}</p>
+         
           <p className="text-[#05a8a3] text-[20px] font-bold">
             {onRoadPrice}
           </p>
@@ -79,12 +62,7 @@ export function MotorcycleShowcase({
           z-20 pointer-events-none
         "
       />
-      <LocationModal
-        isOpen={showLocationModal}
-        onClose={() => setShowLocationModal(false)}
-        onLocationUpdate={handleLocationUpdate}
-        currentLocation={currentLocation}
-      />
+     
     </div>
   );
 }

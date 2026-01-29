@@ -10,7 +10,9 @@ export function ProductViewer() {
    const [showLocationModal, setShowLocationModal] = useState(false);
     const [currentLocation, setCurrentLocation] = useState('Tamil Nadu');
     const navigate = useNavigate();
- 
+ const selectedState = useSelector(
+  (state) => state.location.state
+);
     // Show modal on initial load/refresh
     useEffect(() => {
       // Check if we're on the product route (or just show it always for this demo)
@@ -104,7 +106,7 @@ export function ProductViewer() {
                 className="text-[#00a8a3] text-lg lg:text-xl font-bold underline"
                 onClick={() => setShowLocationModal(true)}
               >
-                {currentLocation}
+                {selectedState}
               </a>
             </div>
             <div className="flex items-center gap-2 text-xl lg:text-2xl">

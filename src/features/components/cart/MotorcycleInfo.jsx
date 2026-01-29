@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import imgFlyingFleaLhsProfileTimeless from "/flyingflea.png";
  
 export function MotorcycleInfo() {
+  const selectedState = useSelector((state) => state.location.state);
   return (
     <>
     <div className="flex md:hidden items-center gap-[16px] w-full">
@@ -70,7 +72,7 @@ export function MotorcycleInfo() {
  
             {/* State */}
             <p className="text-[14px] font-interMedium text-black">
-              Tamil Nadu
+              {selectedState}
             </p>
  
             {/* Price */}

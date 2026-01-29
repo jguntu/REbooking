@@ -6,7 +6,6 @@ import i18n from "./i18n";
 import { getLanguageHeaderValue } from "./utils/language";
 import Home from "./features/home/home";
 import CartPage from "./pages/CartPage";
-import BikeConfigurator from "./pages/BikeConfigurator";
 import ProductPage from "./pages/ProductPage";
 import store, { persistor } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
@@ -46,7 +45,6 @@ function App() {
                 
                <Route path="/" element={<Home/>} />
                <Route path="/cart" element={<CartPage/>} />
-                <Route path="/pro" element={<BikeConfigurator />} />
                 <Route path="/3D-view" element={<Configurator3d/>} />
                <Route
               path="/bike-configurator"

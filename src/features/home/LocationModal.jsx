@@ -1,29 +1,34 @@
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 import { X, MapPin } from "lucide-react";
 import { useLocationData } from "../../hooks/useLocationData";
+import { useDispatch, useSelector } from "react-redux";
+import { setLocation } from "../../store/locationSlice";
 
 export function LocationModal({
   isOpen,
   onClose,
-  onLocationUpdate,
-  currentLocation = "",
 }) {
   // 🔥 Fetch states from Firestore
   const { states, loading } = useLocationData("IN");
   console.log("States loaded:", states);
 
+  const dispatch = useDispatch();
+const selectedState = useSelector((state) => state.location.state);
+
+
   // Selected state (display name)
-  const [selectedState, setSelectedState] = useState(currentLocation);
+  //const [selectedState, setSelectedState] = useState(currentLocation);
 
   // Sync when modal opens / location changes
-  useEffect(() => {
-    setSelectedState(currentLocation);
-  }, [currentLocation]);
+  // useEffect(() => {
+  //   setSelectedState(currentLocation);
+  // }, [currentLocation]);
 
   if (!isOpen) return null;
 
   const handleUpdate = () => {
-    onLocationUpdate(selectedState);
+    //onLocationUpdate(selectedState);
+     dispatch(setLocation(selectedState));
     onClose();
   };
 
@@ -73,7 +78,7 @@ export function LocationModal({
             <div className="relative">
               <select
                 value={selectedState}
-                onChange={(e) => setSelectedState(e.target.value)}
+   onChange={(e) => dispatch(setLocation(e.target.value))}
                 className="
         w-full
         bg-transparent

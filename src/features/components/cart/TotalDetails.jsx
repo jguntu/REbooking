@@ -7,6 +7,7 @@ export function TotalDetails({ vehiclePrice, roadTax }) {
   const [isExpanded, setIsExpanded] = useState(true);
   
   const cartItems = useSelector(state => state.cart.items);
+  const selectedState = useSelector((state) => state.location.state);
 
   const accessoriesTotal = cartItems.reduce((sum, item) => sum + item.price, 0);
   const grandTotal = vehiclePrice + roadTax + accessoriesTotal;
@@ -120,7 +121,7 @@ export function TotalDetails({ vehiclePrice, roadTax }) {
                     <div className="content-stretch flex flex-[1_0_0] items-center min-h-px min-w-px relative">
                       <div className="css-g0mm18 flex flex-col font-interRegular justify-center leading-[0] not-italic relative shrink-0 text-[#333] text-[14px]">
                         <p className="css-ew64yg text-[#333333] leading-[14px]">
-                          On-road price - Tamil Nadu
+                          On-road price - {selectedState}
                         </p>
                       </div>
                     </div>
