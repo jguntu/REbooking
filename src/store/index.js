@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import cartReducer from "./cartSlice";
 import locationReducer from "./locationSlice";
+import emiReducer from "./emiSlice";
 
 import {
   persistStore,
@@ -11,12 +12,14 @@ import storage from "redux-persist/lib/storage" // localStorage
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart"], // only persist cart
+  whitelist: ["cart", "location", "emi"]
+
 }
 
 const rootReducer = combineReducers({
   cart: cartReducer,
   location: locationReducer,
+  emi: emiReducer,
 })
 
 const persistedReducer = persistReducer(

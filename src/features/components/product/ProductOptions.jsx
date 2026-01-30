@@ -6,10 +6,10 @@ import { addToCart, selectItemByCategory } from "../../../store/cartSlice";
 export function ProductOptions({ category }) {
   const dispatch = useDispatch();
 
-  // Get currently selected item for this category
   const selectedItem = useSelector((state) =>
     selectItemByCategory(state, category),
   );
+
   const options = productData[category] || productData.seat;
 
   const handleAdd = (option) => {
@@ -25,53 +25,68 @@ export function ProductOptions({ category }) {
   };
 
   return (
-    <div className="bg-[#0c0c0c] py-8 px-4">
-      <div className="space-y-0">
-        {options.map((option) => (
-          <div
-            key={option.id}
-            className={`
-    relative rounded-2xl h-[208px] transition-colors
-    ${
-      selectedItem?.id === option.id
-        ? "bg-[#211f23] ring-2 ring-[#d0fd0a]"
-        : "bg-transparent hover:bg-[#211f23]"
-    }
-  `}
-          >
-            <div className="relative h-full flex items-center justify-center">
-              {/* Product Image */}
-              <div className="flex flex-col items-center justify-center gap-4">
-                <div className="h-[75px] flex items-center justify-center">
-                  <img
-                    src={option.image}
-                    alt={option.name}
-                    className="max-h-full max-w-[110px] object-contain"
-                  />
-                </div>
-                <div className="text-center">
-                  <p className="text-[#ccc] text-lg">{option.name}</p>
-                  <p className="text-white text-xl font-bold">{option.price}</p>
-                </div>
-              </div>
+    <div className="bg-[#0c0c0c] px-4 py-3">
+      {/* MOBILE: very small horizontal cards | WEB: unchanged */}
+      <div className="flex gap-3 overflow-x-auto scrollbar-hide md:flex-col md:overflow-visible">
+        {options.map((option) => {
+          const isSelected = selectedItem?.id === option.id;
 
+          return (
+            <div
+              key={option.id}
+              className={`
+                relative shrink-0 rounded-xl
+                p-2 md:p-4
+                w-[120px] h-[160px]
+                md:w-full md:h-[210px]
+                transition-all
+                ${
+                  isSelected
+                    ? "bg-[#211f23] ring-2 ring-[#d0fd0a]"
+                    : "hover:bg-[#151317]"
+                }
+              `}
+            >
+              {/* Add Button */}
               <button
                 onClick={() => handleAdd(option)}
                 className={`
-    absolute top-3 right-3 w-8 h-8 rounded-full
-    flex items-center justify-center transition-all
-    ${
-      selectedItem?.id === option.id
-        ? "bg-[#d0fd0a]"
-        : "bg-[#00a8a3] hover:bg-[#00a8a3]/90"
-    }
-  `}
+                  absolute top-1.5 right-1.5
+                  md:top-3 md:right-3
+                  w-6 h-6 md:w-8 md:h-8
+                  rounded-full flex items-center justify-center
+                  ${isSelected ? "bg-[#d0fd0a]" : "bg-[#00a8a3]"}
+                `}
               >
-                <Plus className="w-5 h-5 text-black" />
+                <Plus className="w-3.5 h-3.5 md:w-5 md:h-5 text-black" />
               </button>
+
+              {/* Content */}
+              <div className="flex flex-col items-center justify-center h-full gap-1.5 md:gap-3">
+                {/* Image */}
+                <img
+                  src={option.image}
+                  alt={option.name}
+                  className="
+                    w-[80px] h-[50px]
+                    md:w-[120px] md:h-[80px]
+                    object-contain
+                  "
+                />
+
+                {/* Text */}
+                <div className="text-center leading-tight">
+                  <p className="text-[#cfcfcf] text-[11px] md:text-sm">
+                    {option.name}
+                  </p>
+                  <p className="text-white text-xs md:text-base font-bold">
+                    {option.price}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

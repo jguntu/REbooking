@@ -1,32 +1,38 @@
-import { ChevronLeft, ChevronRight, Grid3x3, RefreshCw, ShoppingCart } from "lucide-react"
-import { useSelector } from "react-redux"
-import { selectCartCount } from "../../../store/cartSlice"
+import {
+  ChevronLeft,
+  ChevronRight,
+  Grid3x3,
+  RefreshCw,
+  ShoppingCart,
+} from "lucide-react";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "../../../store/cartSlice";
 import { useEffect, useState } from "react";
 import { LocationModal } from "../../home/LocationModal";
 import { useNavigate } from "react-router-dom";
 
 export function Configurator3d() {
   const cartCount = useSelector(selectCartCount);
-   const [showLocationModal, setShowLocationModal] = useState(false);
-    const [currentLocation, setCurrentLocation] = useState('Tamil Nadu');
-    const navigate = useNavigate();
- 
-    // Show modal on initial load/refresh
-    useEffect(() => {
-      // Check if we're on the product route (or just show it always for this demo)
-      const hasShownModal = sessionStorage.getItem('locationModalShown');
-     
-      if (!hasShownModal) {
-        setShowLocationModal(true);
-        sessionStorage.setItem('locationModalShown', 'true');
-      }
-    }, []);
- 
-    const handleLocationUpdate = (newLocation) => {
-      setCurrentLocation(newLocation);
-      // Here you can also update pricing or other location-dependent data
-      console.log('Location updated to:', newLocation);
-    };
+  const [showLocationModal, setShowLocationModal] = useState(false);
+  const [currentLocation, setCurrentLocation] = useState("Tamil Nadu");
+  const navigate = useNavigate();
+
+  // Show modal on initial load/refresh
+  useEffect(() => {
+    // Check if we're on the product route (or just show it always for this demo)
+    const hasShownModal = sessionStorage.getItem("locationModalShown");
+
+    if (!hasShownModal) {
+      setShowLocationModal(true);
+      sessionStorage.setItem("locationModalShown", "true");
+    }
+  }, []);
+
+  const handleLocationUpdate = (newLocation) => {
+    setCurrentLocation(newLocation);
+    // Here you can also update pricing or other location-dependent data
+    console.log("Location updated to:", newLocation);
+  };
 
   return (
     <div className="relative bg-black">
@@ -40,16 +46,14 @@ export function Configurator3d() {
 
         {/* Motorcycle Image */}
         <div className="absolute inset-0 flex items-center justify-center">
-         <iframe
-  src="https://content.hmxmedia.com/RE/Flying_Flea_EV/index.html"
-  title="Flying Flea 3D Configurator"
-  className="w-full h-full max-h-full max-w-full"
-  frameBorder="0"
-  allow="fullscreen; autoplay; xr-spatial-tracking"
-  allowFullScreen
-/>
-
-          
+          <iframe
+            src="https://content.hmxmedia.com/RE/Flying_Flea_EV/index.html"
+            title="Flying Flea 3D Configurator"
+            className="w-full h-full max-h-full max-w-full"
+            frameBorder="0"
+            allow="fullscreen; autoplay; xr-spatial-tracking"
+            allowFullScreen
+          />
         </div>
 
         {/* Top Left Navigation */}
@@ -62,32 +66,32 @@ export function Configurator3d() {
         {/* Top Right Controls */}
         <div className="absolute top-4 lg:top-8 right-4 lg:right-8 flex items-center gap-3">
           <button className="w-14 h-14 rounded-full bg-gray-600/46 backdrop-blur-md flex items-center justify-center text-white hover:bg-gray-600/60 transition-colors">
-            
             <img src="/Pin_Icon.png" alt="Pin Icon" className="w-10 h-10" />
           </button>
-          <button onClick={() => navigate("/cart")} className="w-14 h-14 rounded-full bg-gray-600/46 backdrop-blur-md flex items-center justify-center text-white hover:bg-gray-600/60 transition-colors">
+          <button
+            onClick={() => navigate("/cart")}
+            className="w-14 h-14 rounded-full bg-gray-600/46 backdrop-blur-md flex items-center justify-center text-white hover:bg-gray-600/60 transition-colors"
+          >
             <ShoppingCart className="w-5 h-5" />
-  {cartCount > 0 && (
-    <span className="absolute -top-2 -right-2 bg-red-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">
-      {cartCount}
-    </span>
-  )}
-
-
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
           </button>
         </div>
 
         {/* Product Title and Disclaimer */}
-      <div className="absolute top-10 left-20 p-2 z-20 max-w-sm text-white">
-        <img
-          src="/Product_Configurator_2.png"
-          alt="FFV6"
-          className="h-8 mb-1"
-        />
-        <p className="text-xs text-white/70 leading-tight">
-          Motorcycle shown may be different from the actual product received.
-        </p>
-      </div>
+        <div className="absolute top-10 left-20 p-2 z-20 max-w-sm text-white">
+          <img
+            src="/Product_Configurator_2.png"
+            alt="FFV6"
+            className="h-8 mb-1"
+          />
+          <p className="text-xs text-white/70 leading-tight">
+            Motorcycle shown may be different from the actual product received.
+          </p>
+        </div>
 
         {/* Pricing Information - Bottom Left */}
         <div className="absolute bottom-8 lg:bottom-12 left-4 lg:left-12">
@@ -130,17 +134,20 @@ export function Configurator3d() {
               />
             </svg>
           </button>
-          <button onClick={() => navigate("/cart")} className="w-14 h-14 rounded-full bg-[#00a8a3] flex items-center justify-center text-black hover:bg-[#00a8a3]/90 transition-colors">
+          <button
+            onClick={() => navigate("/cart")}
+            className="w-14 h-14 rounded-full bg-[#00a8a3] flex items-center justify-center text-black hover:bg-[#00a8a3]/90 transition-colors"
+          >
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
       </div>
       <LocationModal
-                isOpen={showLocationModal}
-                onClose={() => setShowLocationModal(false)}
-                onLocationUpdate={handleLocationUpdate}
-                currentLocation={currentLocation}
-              />
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+        onLocationUpdate={handleLocationUpdate}
+        currentLocation={currentLocation}
+      />
     </div>
-  )
+  );
 }
